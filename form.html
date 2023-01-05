@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form">
+        <form action="" id="form_submit">
+        <lable for="">Enter your first name:</label><input
+        type="text" placeholder="firstname" ><br>
+        <label for="">Enter your last name:</label><input
+        type="text" placeholder="last name" ><br>
+         <label for="">Enter your address:</label><input
+        type="text" placeholder="address" ><br>
+        <label for="">Enter your city:</label><input
+        type="text" placeholder="city" ><br>
+        <label for="">choose car:</label>
+        <select id="car">
+        <option value="valvo">valvo</option>
+        <option value="benz">benz</option>
+    </select>
+        <button type="submit">submit</button>
+        </form>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>firstname</th>
+                    <th>lastname</th>
+                    <th>address</th>
+                    <th>city</th>
+                    <th>choosecar</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    form_submit.addEventListener('submit',(e)=>{
+        e.preventDefault()
+        var firstname=document.querySelector('[placeholder="firstname"]')
+        var lastname=document.querySelector('[placeholder="last name"]')
+        var address=document.querySelector('[ placeholder="address"]')
+        var city=document.querySelector('[placeholder="city"]')
+        var choosecar=document.querySelector('#car')
+        console.log('form submitted');
+        console.log(firstname,lastname,address,city,choosecar);
+
+        var datas=[firstname,lastname,address,city,choosecar]
+
+var creating_tr=document.createElement('tr');
+        for(i=0;i<5;i++){
+            var creating_td=document.createElement('td')   
+            creating_td.innerText=datas[i].value
+            creating_tr.append(creating_td)
+        }
+        document.querySelector('tbody').append(creating_tr)
+        for(let i of datas){
+            i.value=""
+        }
+    })
+</script>
+</html>
